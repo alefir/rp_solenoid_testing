@@ -23,6 +23,10 @@ def get_status(num):
 def run_commands(command):
     relays = command.split(',')
     for relay in relays:
+        if relay.lower() == 'all':
+            for i in range(0,5):
+                toggle_relay(i)
+            return
         try:
             num = int(float(relay))
         except ValueError:
